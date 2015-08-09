@@ -3,7 +3,7 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
-
+var jade        = require('gulp-jade');
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
@@ -51,12 +51,26 @@ gulp.task('sass', function () {
 });
 
 /**
+ * Watch Jade Files
+ *
+ */
+
+gulp.task('jade', function() {
+
+  return gulp.src('_jade/*.jade')
+  .pipe(jade())
+  .pipe(gulp.dest('_includes'));
+
+});
+
+/**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
     gulp.watch('_scss/*.scss', ['sass']);
-    gulp.watch(['index.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
+    gulp.watch(['_jade/*.jade'], ['jade']);
 });
 
 /**
