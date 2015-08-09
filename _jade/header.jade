@@ -1,13 +1,23 @@
+mixin nav-content()
+  ul
+    li: a(href="#") About
+    li: a(href="#") Udemy
+    li: a(href="#") Current Project
+    li: a(href="#") Development
+    li: a(href="#") Contact
+
+.mobile-nav
+  +nav-content()
+  
 header
   .header-position
     h1.logo Welcome to JBDev
 
     nav.site-nav
-      ul
-        li: a(href="#") About
-        li: a(href="#") Udemy
-        li: a(href="#") Current Project
-        li: a(href="#") Development
-        li: a(href="#") Contact
+      +nav-content()
         
     a(href="mailto:jonathan@jbdev.xyz").email-link Email Me
+  
+    .mobile-nav-toggle
+      span
+    
