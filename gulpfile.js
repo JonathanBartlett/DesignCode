@@ -4,9 +4,13 @@ var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var jade        = require('gulp-jade');
+
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+
+
+
 
 /**
  * Build the Jekyll Site
@@ -17,12 +21,18 @@ gulp.task('jekyll-build', function (done) {
         .on('close', done);
 });
 
+
+
+
 /**
  * Rebuild Jekyll & do page reload
  */
 gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
     browserSync.reload();
 });
+
+
+
 
 /**
  * Wait for jekyll-build, then launch the Server
@@ -31,9 +41,13 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
     browserSync({
         server: {
             baseDir: '_site'
-        }
+        },
+        notify: false
     });
 });
+
+
+
 
 /**
  * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
@@ -50,28 +64,29 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('assets/css'));
 });
 
-/**
- * Watch Jade Files
- *
- */
+/*
+* Travis is trying to Gulp stuff
+*/
 
-gulp.task('jade', function() {
-
+gulp.task('jade', function(){
   return gulp.src('_jade/*.jade')
   .pipe(jade())
   .pipe(gulp.dest('_includes'));
-
 });
+
 
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('assets/css/*', ['sass']);
+    gulp.watch('assets/css/**', ['sass']);
     gulp.watch(['index.html', '_layouts/*.html', '_includes/*'], ['jekyll-rebuild']);
-    gulp.watch(['_jade/*.jade'], ['jade']);
+    gulp.watch('_jade/*.jade', ['jade']);
 });
+
+
+
 
 /**
  * Default task, running just `gulp` will compile the sass,
