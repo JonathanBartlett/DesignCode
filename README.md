@@ -1,4 +1,4 @@
-# DesignCode
+# JBDev
 The Code for my newly deisgned site
 ### Versions
 #### 0.* Creating a base structure to work from
