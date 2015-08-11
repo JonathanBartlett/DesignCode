@@ -1,5 +1,6 @@
 # JBDev - [jbdev.xyz](http://development.jbdev.xyz)
 The Code for my newly designed site.
+
 The link above goes to a live version of the site. It will be updated after every major update.
 ### Versions
 #### 0.* Creating a base structure to work from
