@@ -1,8 +1,5 @@
 # DesignCode
 The Code for my newly deisgned site
-
--Here is the code for my new site JBDEV
-
 ### Versions
 #### 0.* Creating a base structure to work from
   * 0.1 - *Initial Commit* - Base File Structure Nothing Special Here Yet.
