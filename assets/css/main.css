@@ -607,10 +607,26 @@ body {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around; }
+  .home-sections .order-first {
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1; }
+
+.col-1,
+.col-50,
+.col-full {
+  background-color: lightpink; }
 
 .col-1 {
   max-width: 300px;
   margin: 0px 10px; }
+
+.col-full {
+  max-width: 620px;
+  margin: 0 10px; }
+
+.col-50 {
+  width: 50%; }
 
 @media (max-width: 640px) {
   .home-sections .flex {
