@@ -1,4 +1,4 @@
-# JBDev - [jbdev.xyz](http://development.jbdev.xyz)
+# JSBartlett - [jsbartlett.co.uk](http://development.jsbartlett.co.uk)
 The Code for my newly designed site.
 
 The link above goes to a live version of the site. It will be updated after every major update.
